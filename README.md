@@ -127,19 +127,7 @@ Observações e recomendações
 - O loader de `.env` é minimalista (só `KEY=VALUE`). Se precisar de suporte a aspas, `export` ou valores complexos, recomendo integrar `github.com/joho/godotenv`.
 - A extração de IP usa `X-Forwarded-For` e `RemoteAddr` como fallback; para produção com proxies, melhore a lógica ou configure trusted proxies.
 - A estratégia de persistência é baseada em uma interface `internal/storage.Storage` — é fácil trocar o Redis por outra implementação.
-- Os testes atuais cobrem a lógica do limiter e o middleware; é recomendável adicionar testes de concorrência e uma implementação `storage` em memória reutilizável.
-
-Contribuições e próximos passos
-------------------------------
-
-Se quiser, posso:
-
-- trocar o loader por `godotenv` para suportar casos mais complexos;
-- adicionar uma `storage` em memória para executar o servidor sem Redis (útil para testes);
-- adicionar scripts PowerShell em `scripts/` para automatizar os testes manuais;
-- adicionar métricas/logs (Prometheus / zerolog).
-
-Obrigado — se quiser, eu faço qualquer uma das melhorias acima.
+- Os testes atuais cobrem a lógica do limiter e o middleware;
 
 # fctech-rate-limiter
 Rate limiter em Go que possa ser utilizado para controlar o tráfego de requisições para um serviço web. 
